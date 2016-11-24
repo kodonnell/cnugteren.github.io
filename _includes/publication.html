@@ -1,0 +1,26 @@
+<div id="list">
+	<div id="list_header">
+		{% if include.publisher != "" %}
+			<img id="image_right" src="images/logo_{{ include.publisher }}.png"></img>
+		{% endif %}
+		<span id="list_red">{{ include.location }}</span>
+		</br>
+		{{ include.name }}
+		</br>
+		<span id="list_second">{{ include.authors }}</span>
+		{% if include.extras != "" %}
+			{{ include.extras }}
+		{% endif %}
+	</div>
+	<div id="list_box">
+		{% if include.pdf != "" %}
+			<a href={{ include.pdf }}>PDF</a>
+		{% endif %}
+		{% if include.pdf != "" and doi != "" %}
+			&nbsp;or&nbsp;
+		{% endif %}
+		{% if include.doi != "" %}
+			<a href={{ include.doi }}>DOI</a>
+		{% endif %}
+	</div>
+</div>
