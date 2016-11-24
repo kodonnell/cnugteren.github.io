@@ -1,0 +1,307 @@
+
+/******************** 
+ * Main
+ ********************/
+body {
+	width: 940px;
+	margin: auto;
+	font-family: Helvetica, Verdana, Arial, sans-serif;
+	font-size: 10pt;
+	text-align: left;
+	color: black;
+	background: #eeeeee;
+}
+html, #wrapper {
+	width: 940px;
+	margin: auto;
+	font-family: Helvetica, Verdana, Arial, sans-serif;
+	font-size: 10pt;
+	text-align: left;
+	color: black;
+	background: #eeeeee;
+}
+#page {
+	margin: 0px;
+	min-height: 660px;
+	overflow: hidden;
+	margin-left: 192px;
+	margin-right: 30px;
+	padding-top: 80px;
+	padding-bottom: 40px;
+	padding-left: 50px;
+	padding-right: 50px;
+	background: #ffffff;
+	border: 1px solid #4765B1;
+	border-bottom: 0px;
+}
+#header {
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	min-width: 900px;
+	height: 74px;
+	width: 100%;
+	color: #eeeeee;
+	background: #333333;
+}
+#footer{
+	position: absolute;
+	left: 0px;
+	min-width: 1000px;
+	width: 100%;
+	float: left;
+	clear: both;
+	padding-top: 25px;
+	padding-bottom: 25px;
+	color: white;
+	background: #333333;
+}
+
+/******************** 
+ * Left & Right
+ ********************/
+.header_left {
+	float: left;
+	padding-left: 0px;
+}
+.header_right {
+	float: right;
+	padding: 2em;
+	padding-right: 50px;
+}
+
+/******************** 
+ * Default table
+ ********************/
+td, th {
+	padding-right: 20px;
+	text-align: left;
+	vertical-align: top;
+}
+th {
+	text-align: center;
+}
+.columns td, .columns th {
+	width: 50%;
+}
+table.columns {
+	table-layout: fixed;
+}
+
+/******************** 
+ * Headers
+ ********************/
+h1 {
+	font-size: 12pt;
+}
+h2, h3, h4, h5 {
+	font-size: 10pt;
+}
+.title_head {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+	font-size: 14pt;
+	font-weight: bold;
+}
+#title {
+	padding: 1em;
+	margin-top: 1em;
+	text-align: center;
+	font-weight: bold;
+}
+
+/******************** 
+ * Normal text
+ ********************/
+.text {
+	padding: 1em;
+}
+li {
+	color: black;
+}
+
+/******************** 
+ * Normal links
+ ********************/
+a, a:visited {
+	color: #4765B1;
+	text-decoration: none;
+}
+a:hover {
+	color: #ffc125;
+}
+
+/******************** 
+ * Profile picture
+ ********************/
+#picture {
+	height: 149px;
+	margin: 2px;
+	position: absolute;
+	top: 130px;
+	width: 149px;
+	border: 1px solid #4765B1;
+}
+img.leftimage {
+	width: 149px;
+}
+
+/******************** 
+ * Top picture
+ ********************/
+img.topimage {
+	width: 732px;
+	height: 130px;
+	border: solid 4px #eeeeee;
+}
+
+/******************** 
+ * Navigation menu (top)
+ ********************/
+#menu {
+	list-style: none;
+	text-align: center;
+}
+#menu a {
+	display: block;
+}
+#menu li {
+	float: left;
+	color: white;
+	position: relative;
+}
+#menu a:hover {
+	background: #4765B1;
+}
+#menu_button1 a, #menu_current1 a, #menu_button2 a, #menu_current2 a {
+	color: white;
+	text-decoration: none;
+	margin: 2px;
+	background: #333333;
+	width: 80px;
+}
+#menu_button1 a, #menu_current1 a {
+	padding: 1.2em 1em 1.2em 1em;
+}
+#menu_button2 a, #menu_current2 a {
+	padding: 0.5em 1em 0.5em 1em;
+}
+#menu_current1 a, #menu_current2 a {
+	background: #4765B1;
+}
+
+/******************** 
+ * List items
+ ********************/
+#list {
+}
+#list_header, #entry-title {
+	color: black;
+	font-weight: bold;
+	padding: 1em;
+	padding-bottom: 0.3em;
+	border-bottom: 1px solid #cccccc;
+}
+#list_box {
+	padding: 1em;
+	padding-top: 0.3em;
+}
+#list_image {
+	float: left;
+	padding-right: 1em;
+}
+#list_first {
+}
+#list_second {
+	font-style: italic;
+	font-weight: normal;
+	color: #777777;
+}
+#list_right {
+	float: right;
+}
+#list_red {
+	color: #D67568;
+}
+#list_title {
+	font-weight: normal;
+}
+#image_right {
+	float: right;
+	max-width: 70px;
+	max-height: 40px;
+	padding-left: 20px;
+	border: 0px solid #cccccc;
+}
+#image_right_big {
+	float: right;
+	max-width: 140px;
+	max-height: 120px;
+	padding-left: 20px;
+	border: 0px solid #cccccc;
+}
+
+/******************** 
+ * Left boxes
+ ********************/
+#box_title {
+	padding-bottom: 5px;
+	font-weight: bold;
+}
+#box {
+	position: absolute;
+	width: 135px;
+	height: 150px;
+	background: #eeeeee;
+	padding: 5px;
+	top: 330px;
+}
+
+/******************** 
+ * Email
+ ********************/
+.email{
+	direction: rtl;
+	unicode-bidi: bidi-override;
+}
+
+/******************** 
+ * Tutorial
+ ********************/
+img#blogimage {
+	width: 600px;
+}
+#equation {
+	text-align: center;
+}
+#blogheader {
+	border-bottom: 1px solid #cccccc;
+	padding-bottom: 2em;
+	margin-bottom: 1em;
+}
+#blogfooter {
+	border-top: 1px solid #cccccc;
+	margin-top: 2em;
+}
+#leftbutton {
+	float: left;
+	padding-top: 0.5em;
+}
+#rightbutton {
+	float: right;
+	padding-top: 0.5em;
+}
+pre {
+	background: #eeeeee;
+}
+
+/******************** 
+ * Blog
+ ********************/
+#post {
+	width: 200px;
+}
+
+/******************** 
+ * END
+ ********************/

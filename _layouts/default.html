@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+	<html>
+		<head>
+			<title>{{ page.title }}</title>
+			<link rel="stylesheet" type="text/css" href="/css/main.css">
+		</head>
+		<body>
+
+			<div id="page">
+				{{ content }}
+			</div>
+
+			<div id="header">
+				<span class="header_left">
+					<ul id="menu">
+						<li id="menu_current1"><a href="/">Home</a></li>
+					</ul>
+				</span>
+				<span class="header_right">
+					www.cedricnugteren.nl
+				</span>
+			</div>
+
+			<div id="picture">
+				<img class="leftimage" src="/images/picture.jpg" alt="profile_picture" />
+			</div>
+			<div id="box">
+				<div id="box_title">Current job:</div>
+				Performance engineer</br>
+				</br>
+				<div id="box_title">Current location:</div>
+				Amsterdam, NL</br>
+				</br>
+				<div id="box_title">Contact:</div>
+				www.cedricnugteren.nl</br>
+				<a href="#" onclick="this.href='mailto:'+this.innerHTML.split('').reverse().join('')" class="email">
+					<?php echo strrev("web@cedricnugteren.nl"); ?>
+				</a>&#x200E;
+				</br>
+				<div id="box_title">Year of birth:</div>
+				1986</br>
+				</br>
+				<div id="box_title">Nationality:</div>
+				Dutch</br>
+				</br>
+			</div>
+
+			<div id="footer">
+				<ul>
+					<li><a href="https://github.com/cnugteren">github.com/cnugteren</a></li>
+				</ul>
+			</div>
+
+		</body>
+	</html>
