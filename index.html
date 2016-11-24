@@ -27,109 +27,17 @@ current: 0
 
 <h1>Work experience</h1>
 
-{% include resume.html
-	name="TomTom"
-	title = "Deep learning / GPU specialist for autonomous driving"
-	location = "Amsterdam"
-	date = "07/2016 - current"
-	description = "I work as a deep learning and GPU performance specialist on computer vision and machine learning algorithms for autonomous driving."
-	logo = "tomtom"
-	variable-param=page.variable
-%}
-
-{% include resume.html
-	name="Layar / Blippar"
-	title = "R&D engineer performance optimization"
-	location = "Amsterdam"
-	date = "11/2015 - 06/2016"
-	description = "I worked as a C++11 performance engineer on computer vision and machine learning algorithms for an augmented reality company. My work included multi-threading, vectorisation and GPU-acceleration."
-	logo = "blippar"
-	variable-param=page.variable
-%}
-
-{% include resume.html
-	name="SURFsara"
-	title = "GPU/Supercomputing consultant"
-	location = "Amsterdam"
-	date = "05/2014 - 10/2015"
-	description = "I worked as a consultant for the Dutch national supercomputing/HPC centre, specialised in accelerator programming (Xeon Phi, GPU). My job involves tuning scientific codes (C/C++/Fortran) for multi-cores (OpenMP), multiple nodes (MPI), and accelerators (OpenCL/CUDA). I have worked on codes from various domains, including finite element methods, fluid dynamics, and quantum chemistry."
-	logo = "sara"
-	variable-param=page.variable
-%}
-
-{% include resume.html
-	name="NVIDIA Santa Clara"
-	title = "CUDA software engineer"
-	location = "California"
-	date = "01/2014 - 04/2014"
-	description = "I worked for four months as an intern GPU programmer at the NVIDIA headquarters in Silicon Valley within the math libraries group, developing and performance tuning the CUDA Fast Fourier Transform library (<a href=https://developer.nvidia.com/cuFFT>cuFFT</a>)."
-	logo = "nvidia"
-	variable-param=page.variable
-%}
-
-{% include resume.html
-	name="ARM Cambridge"
-	title = "Research intern"
-	location = "United Kingdom"
-	date = "08/2012 - 12/2012"
-	description = "As part of a 4-month HiPEAC sponsored internship, I performed research within the ARM Mali OpenCL compiler team. I created a machine-code level mathematical performance model for the Mali T600-series, one of the first OpenCL capable low-power GPU architectures. Additionally, I worked on a GPU cache model, and was involved in the design of the PENCIL language, part of the <a href=http://carp.doc.ic.ac.uk/external/>CARP EU project</a>."
-	logo = "arm"
-	variable-param=page.variable
-%}
-{% include resume.html
-	name="Eindhoven University of Technology"
-	title = "Scientific Programmer"
-	location = "Netherlands"
-	date = "11/2009 - 11/2010"
-	description = "Within the <a href=http://www.es.ele.tue.nl>Electronic Systems group</a>, I worked full-time as a scientific programmer, which included research into processor architecture (GPUs, SIMD) targeted at image and video processing applications (histogram, motion estimation)."
-	logo = "tue"
-	variable-param=page.variable
-%}
-{% include resume.html
-	name="Kinento"
-	title = "Founder and owner of Kinento"
-	location = "Netherlands"
-	date = "10/2009 - 12/2014"
-	description = "Kinento is a privately owned e-commerce company. Three PHP extensions to Magento were developed and maintained. From 2015 onwards, they are open-sourced and available for free on <a href=http://www.github.com/Kinento/>GitHub</a>."
-	logo = "kinento"
-	variable-param=page.variable
-%}
+{% include resume.html name = "TomTom" title = "Deep learning / GPU specialist for autonomous driving" location = "Amsterdam" date = "07/2016 - current" description = "I work as a deep learning and GPU performance specialist on computer vision and machine learning algorithms for autonomous driving." logo = "tomtom" variable-param=page.variable %}
+{% include resume.html name = "Layar / Blippar" title = "R&D engineer performance optimization" location = "Amsterdam" date = "11/2015 - 06/2016" description = "I worked as a C++11 performance engineer on computer vision and machine learning algorithms for an augmented reality company. My work included multi-threading, vectorisation and GPU-acceleration." logo = "blippar" variable-param=page.variable %}
+{% include resume.html name = "SURFsara" title = "GPU/Supercomputing consultant" location = "Amsterdam" date = "05/2014 - 10/2015" description = "I worked as a consultant for the Dutch national supercomputing/HPC centre, specialised in accelerator programming (Xeon Phi, GPU). My job involves tuning scientific codes (C/C++/Fortran) for multi-cores (OpenMP), multiple nodes (MPI), and accelerators (OpenCL/CUDA). I have worked on codes from various domains, including finite element methods, fluid dynamics, and quantum chemistry." logo = "sara" variable-param=page.variable %}
+{% include resume.html name = "NVIDIA Santa Clara" title = "CUDA software engineer" location = "California" date = "01/2014 - 04/2014" description = "I worked for four months as an intern GPU programmer at the NVIDIA headquarters in Silicon Valley within the math libraries group, developing and performance tuning the CUDA Fast Fourier Transform library (<a href=https://developer.nvidia.com/cuFFT>cuFFT</a>)." logo = "nvidia" variable-param=page.variable %}
+{% include resume.html name = "ARM Cambridge" title = "Research intern" location = "United Kingdom" date = "08/2012 - 12/2012" description = "As part of a 4-month HiPEAC sponsored internship, I performed research within the ARM Mali OpenCL compiler team. I created a machine-code level mathematical performance model for the Mali T600-series, one of the first OpenCL capable low-power GPU architectures. Additionally, I worked on a GPU cache model, and was involved in the design of the PENCIL language, part of the <a href=http://carp.doc.ic.ac.uk/external/>CARP EU project</a>." logo = "arm" variable-param=page.variable %}
+{% include resume.html name = "Eindhoven University of Technology" title = "Scientific Programmer" location = "Netherlands" date = "11/2009 - 11/2010" description = "Within the <a href=http://www.es.ele.tue.nl>Electronic Systems group</a>, I worked full-time as a scientific programmer, which included research into processor architecture (GPUs, SIMD) targeted at image and video processing applications (histogram, motion estimation)." logo = "tue" variable-param=page.variable %}
+{% include resume.html name = "Kinento" title = "Founder and owner of Kinento" location = "Netherlands" date = "10/2009 - 12/2014" description = "Kinento is a privately owned e-commerce company. Three PHP extensions to Magento were developed and maintained. From 2015 onwards, they are open-sourced and available for free on <a href=http://www.github.com/Kinento/>GitHub</a>." logo = "kinento" variable-param=page.variable %}
 
 <h1>Education</h1>
 
-{% include resume.html
-	name="Eindhoven University of Technology"
-	title = "Doctor of Philosophy (PhD)"
-	location = "Netherlands"
-	date = "11/2010 - 04/2014"
-	description = "Under the supervision of <a href=http://www.es.ele.tue.nl/~heco/>prof. Henk Corporaal</a>, I performed research on GPUs. This covered most aspects of GPUs, including micro-architecture, compilers, performance modelling, and programmability issues. This has led to two journal articles, a patent application, and several publications in international conferences and workshops. During my PhD, I interned for 4 months at both ARM and NVIDIA. My PhD thesis is titled 'Improving the Programmability of GPU Architectures' and is available <a href=publications.php>in PDF form</a>."
-	logo = "tue"
-	variable-param=page.variable
-%}
-{% include resume.html
-	name="Universidad Polytecnica de Valencia"
-	title = "MSc. in Computer Science"
-	location = "Spain"
-	date = "08/2008 - 02/2009"
-	description = "Master degree program in Spanish, part of a six month Erasmus exchange."
-	logo = "upv"
-	variable-param=page.variable
-%}
-{% include resume.html
-	name="Eindhoven University of Technology"
-	title = "MSc. in Embedded Systems"
-	location = "Netherlands"
-	date = "08/2007 - 08/2009"
-	description = "Two year master degree program with a focus on (multi-)processor architectures. Master thesis carried out at the Electronic Systems group, titled 'Improving CUDA's compiler through the visualization of decoded GPU binaries'."
-	logo = "tue"
-	variable-param=page.variable
-%}
-{% include resume.html
-	name="Eindhoven University of Technology"
-	title = "BSc. Electrical Engineering"
-	location = "Netherlands"
-	date = "08/2004 - 08/2007"
-	description = "Three year bachelor degree program."
-	logo = "tue"
-	variable-param=page.variable
-%}
+{% include resume.html name = "Eindhoven University of Technology" title = "Doctor of Philosophy (PhD)" location = "Netherlands" date = "11/2010 - 04/2014" description = "Under the supervision of <a href=http://www.es.ele.tue.nl/~heco/>prof. Henk Corporaal</a>, I performed research on GPUs. This covered most aspects of GPUs, including micro-architecture, compilers, performance modelling, and programmability issues. This has led to two journal articles, a patent application, and several publications in international conferences and workshops. During my PhD, I interned for 4 months at both ARM and NVIDIA. My PhD thesis is titled 'Improving the Programmability of GPU Architectures' and is available <a href=publications.php>in PDF form</a>." logo = "tue" variable-param=page.variable %}
+{% include resume.html name = "Universidad Polytecnica de Valencia" title = "MSc. in Computer Science" location = "Spain" date = "08/2008 - 02/2009" description = "Master degree program in Spanish, part of a six month Erasmus exchange." logo = "upv" variable-param=page.variable %}
+{% include resume.html name = "Eindhoven University of Technology" title = "MSc. in Embedded Systems" location = "Netherlands" date = "08/2007 - 08/2009" description = "Two year master degree program with a focus on (multi-)processor architectures. Master thesis carried out at the Electronic Systems group, titled 'Improving CUDA's compiler through the visualization of decoded GPU binaries'." logo = "tue" variable-param=page.variable %}
+{% include resume.html name = "Eindhoven University of Technology" title = "BSc. Electrical Engineering" location = "Netherlands" date = "08/2004 - 08/2007" description = "Three year bachelor degree program." logo = "tue" variable-param=page.variable %}
