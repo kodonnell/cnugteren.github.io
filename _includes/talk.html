@@ -1,0 +1,22 @@
+<div id="list">
+	<div id="list_header">
+		{{ include.name }}
+	</div>
+	<div id="list_box">
+		<span id="list_red">{{ include.location }}</span>
+		<span id="list_first">{{ include.date }}</span>
+		{% if include.link != "" %}
+			<span id="list_right"><a href={{ include.link }}>Link to program</a></span>
+		{% endif %}
+		{% if include.pdf != "" and include.link != "" %}
+			<span id="list_right">&nbsp;and&nbsp;</span>
+		{% endif %}
+		{% if include.pdf != "" %}
+			{% if include.poster == "yes" %}
+				<span id="list_right"><a href={{ include.pdf }}>Poster PDF</a></span>
+			{% else %}
+				<span id="list_right"><a href={{ include.pdf }}>Handouts</a></span>
+			{% endif %}
+		{% endif %}
+	</div>
+</div>

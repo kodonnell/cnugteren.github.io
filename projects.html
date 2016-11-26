@@ -4,4 +4,28 @@ title: Cedric Nugteren | Projects
 current: 3
 ---
 
-To be filled in
+<h1>CLBlast: The tuned OpenCL BLAS library</h1>
+
+<div class="text">
+	CLBlast is a modern, lightweight, performant and tunable OpenCL BLAS library written in C++11. It is designed to leverage the full performance potential of a wide variety of OpenCL devices from different vendors, including desktop and laptop GPUs, embedded GPUs, and other accelerators. CLBlast implements BLAS routines: basic linear algebra subprograms operating on vectors and matrices.
+	<br/><br/>
+	View on <a href=https://github.com/CNugteren/CLBlast>CLBlast on GitHub</a>.
+</div>
+
+<h1>CLCudaAPI: A portable CUDA/OpenCL high-level API</h1>
+
+<div class="text">
+	CLCudaAPI provides a C++ interface to the OpenCL API and/or CUDA API. This interface is high-level: all the details of setting up an OpenCL platform and device are handled automatically, as well as for example OpenCL and CUDA memory management. A similar high-level API is also provided by Khronos's cl.hpp, so why would someone use CLCudaAPI instead? The main reason is portability: CLCudaAPI provides two header files which both implement the exact same API, but with a different back-end. This allows porting between OpenCL and CUDA by simply changing the header file!
+	<br/><br/>
+	View on <a href=https://github.com/CNugteren/CLCudaAPI>CLCudaAPI on GitHub</a>.
+</div>
+
+<h1>CLTune: Automatic OpenCL kernel tuning</h1>
+
+<div class="text">
+	CLTune is a C++ library which can be used to automatically tune your OpenCL kernels. The only thing you'll need to provide is a tuneable kernel and a list of allowed parameters and values.
+	<br/><br/>
+	For example, if you would perform loop unrolling or local memory tiling through a pre-processor define, just remove the define from your kernel code, pass the kernel to CLTune and tell it what the name of your parameter(s) are and what values you want to try. CLTune will take care of the rest: it will iterate over all possible permutations, test them, and report the best combination.
+	<br/><br/>
+	View on <a href=https://github.com/CNugteren/cltune>CLTune on GitHub</a>.
+</div>
