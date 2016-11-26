@@ -1,0 +1,29 @@
+---
+layout: default
+title: OpenCL matrix-multiplication SGEMM tutorial
+current: 5
+tutorial_page: 13
+---
+
+<h2>What's next?</h2>
+
+Our last kernel tried to mimic behaviour of cuBLAS by running fewer threads. Unfortunately, it did not even come close in terms of performance. Our best kernel so far was one with 512 active threads, achieving half of the performance of cuBLAS. On the bright side, we've beaten clBlas by a factor 2 to 3, so our work was not a waste. Especially those who are working in OpenCL on NVIDIA GPUs will be thankful.
+<br/><br/>
+
+But why haven't we come close to cuBLAS? Why can it perform so well with only 256 active threads? Let's take a step back and consider whether we really need those extra threads. With 8 warps (256 threads) per SM we can keep Kepler's 192 cores fully occupied. Since there are only 4 warp schedulers per SM and 192 cores, each warp scheduler can schedule up to 2 instructions per warp, given that there is instruction-level parallelism (ILP). So, to hide latency and to get maximum performance, we'll need to have many independent instructions following each other. With pre-fetching we've made sure that off-chip memory latency is no longer an issue, but we don't have much control over the scheduling of the other instructions: this happens in the assembler.
+<br/><br/>
+
+Another issue is the throughput of the register-file. As detailed in the articles listed below, we can only achieve 75% of the peak performance (~3 TFLOPS) because of a limited bandwidth to the register file. If register allocation is not done correctly, we quickly lose a factor of 2 or 3 as we might get register-bank conflicts.
+<br/><br/>
+
+In other words, to get more performance, we'll have to go to assembly level. This will allow us to: (1) schedule instructions for maximum ILP, (2) save precious registers to increase register tiling, (3) use 32-bit addresses, and (4) ensure that there are no register bank-conflicts. With extra registers, we can further increase the tile-sizes and get better performance. But we can't do all of this in OpenCL nor in CUDA: our optimisation story ends here. There are however community-built assemblers for the Fermi architecture and the Maxwell architecture (see below), but there is none for the Kepler architecture.
+<br/><br/>
+
+Further reading:
+<ol>
+    <li><b>Fast Implementation of DGEMM on Fermi GPU.</b> G. Tan, L. Li, S. Triechle, E. Phillips, Y. Bao and N. Sun. In:<i> SC '11.</i> ACM. <a href="http://asg.ict.ac.cn/projects/dgemm/sc11_dgemm.pdf">Get PDF.</a></li>
+    <li><b>Performance Upper Bound Analysis and Optimisation of SGEMM on Fermi and Kepler GPUs.</b> J. Lai and A. Seznec. In:<i> CGO '13</i>. IEEE. <a href="https://hal.inria.fr/hal-00789958/PDF/112_Lai.pdf">Get PDF.</a></li>
+    <li><a href="https://devtalk.nvidia.com/default/topic/540221/cuda-programming-and-performance/is-3-address-ffma-faster-than-4-address-ffma-/1/">NVIDIA devtalk forums: Is 3-address FFMA faster than 4-address FFMA?</a></li>
+    <li><a href="https://code.google.com/p/asfermi/">Fermi assembler</a>.</li>
+    <li><a href="https://code.google.com/p/maxas/wiki/sgemm">Maxwell assembler and (very interesting) SGEMM walkthrough</a>.</li>
+</ol>

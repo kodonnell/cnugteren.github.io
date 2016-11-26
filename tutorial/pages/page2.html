@@ -1,0 +1,42 @@
+---
+layout: default
+title: OpenCL matrix-multiplication SGEMM tutorial
+current: 5
+tutorial_page: 2
+---
+
+<h2>Background: Matrix-multiplication</h2>
+
+Before we look at OpenCL code, let us define the computation we are about to perform. According to the definition of BLAS libraries, the single-precision general matrix-multiplication (SGEMM) computes the following:
+<div id="equation">
+    C := alpha * A * B + beta * C
+</div>
+<br/>
+
+In this equation, A is a K by M input matrix, B is an N by K input matrix, C is the M by N output matrix, and alpha and beta are scalar constants. For simplicity, we assume the common case where alpha is equal to 1 and beta is equal to zero, yielding:
+<div id="equation">
+C := A * B
+</div>
+<br/>
+
+This computation is illustrated in the following image: to compute a single element of C (in purple), we need a row of A (in green) and a column of B (in blue).
+<br/><br/>
+<img id="blogimage" src="/tutorial/images/gemm1.png" alt="Matrix-multiplication illustrated"></img>
+<br/><br/>
+
+This version of SGEMM can be implemented in plain C using 3 nested loops (see below). We assume data to be stored in column-major format (Fortran-style), following cuBLAS's default. If we wanted, we could easily change this to row-major by swapping the A and B matrices and the N and M constants, so this is not a real limitation of our code.
+<br/>
+<pre class="prettyprint linenums lang-cuda">
+for (int m=0; m&lt;M; m++) {
+    for (int n=0; n&lt;N; n++) {
+        float acc = 0.0f;
+        for (int k=0; k&lt;K; k++) {
+            acc += A[k*M + m] * B[n*K + k];
+        }
+        C[n*M + m] = acc;
+    }
+}
+</pre>
+
+To keep things simple for now, we assume that the matrix sizes are nice multiples of 32, such that we can for example create OpenCL workgroups of size 32 by 32 without having to worry about boundary conditions. There will be assumptions along these lines in the next couple of pages, but that's mainly because we want to keep the code simple and the main story-line easy to follow.
+<br/><br/>

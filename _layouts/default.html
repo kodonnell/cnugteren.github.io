@@ -3,50 +3,96 @@
 		<head>
 			<title>{{ page.title }}</title>
 			<link rel="stylesheet" type="text/css" href="/css/main.css">
+			<script type="text/javascript">
+				function gen_mail_to_link(lhs, rhs, subject) {
+					document.write("<a href=\"mailto");
+					document.write(":" + lhs + "@");
+					document.write(rhs + "?subject=" + subject + "\">" + lhs + "@" + rhs + "<\/a>");
+				}
+			</script>
+			{% if page.current == 5 %}
+				<link href="/google-code-prettify/src/prettify.css" type="text/css" rel="stylesheet" />
+				<script type="text/javascript" src="/google-code-prettify/src/prettify.js"></script>
+				<script type="text/javascript" src="/google-code-prettify/src/lang-cuda.js"></script>
+				<body onload="prettyPrint()">
+			{% endif %}
 		</head>
 		<body>
 
 			<div id="page">
+
+				{% if page.current == 5 %}
+					<div id="blogheader">
+						<h1>Tutorial: OpenCL SGEMM tuning for Kepler</h1>
+						<i>Note: the complete source-code is available at <a href="http://github.com/cnugteren/myGEMM">GitHub</a>.</i>
+						<br/>
+						<i>Note: a tuned OpenCL BLAS library based on this tutorial is now available at <a href="http://github.com/cnugteren/CLBlast">GitHub</a>.</i>
+						<br/><br/>
+						{% if page.tutorial_page != 1 %}
+							<div id="leftbutton"><a href="/tutorial/pages/page{{ page.tutorial_page | plus:-1 }}.html">&lt;- previous</a></div>
+						{% endif %}
+						{% if page.tutorial_page != 15 %}
+							<div id="rightbutton"><a href="/tutorial/pages/page{{ page.tutorial_page | plus:1 }}.html">next -&gt;</a></div>
+						{% endif %}
+					</div>
+				{% endif %}
+
 				{{ content }}
+
+				{% if page.current == 5 %}
+					<div id="blogfooter">
+						{% if page.tutorial_page != 1 %}
+							<div id="leftbutton"><a href="/tutorial/pages/page{{ page.tutorial_page | plus:-1 }}.html">&lt;- previous</a></div>
+						{% endif %}
+						{% if page.tutorial_page != 15 %}
+							<div id="rightbutton"><a href="/tutorial/pages/page{{ page.tutorial_page | plus:1 }}.html">next -&gt;</a></div>
+						{% endif %}
+						<br/><br/>
+						<i>Tutorial written by Cedric Nugteren, (c) 2014 SURFsara</i>
+						<br/>
+						<i>Last updated in 2014 - information might be outdated</i>
+					</div>
+				{% endif %}
+
 			</div>
 
 			<div id="header">
 				<span class="header_left">
 					<ul id="menu">
-						{% if current == "0" %}
+						{% if page.current == 0 %}
 							<li id="menu_current1"><a href="/index.html">About</a></li>
 						{% else %}
 							<li id="menu_button1"><a href="/index.html">About</a></li>
 						{% endif %}
 
-						{% if current == "1" %}
+						{% if page.current == 1 %}
 							<li id="menu_current1"><a href="/publications.html">Publications</a></li>
 						{% else %}
 							<li id="menu_button1"><a href="/publications.html">Publications</a></li>
 						{% endif %}
 
-						{% if current == "2" %}
+						{% if page.current == 2 %}
 							<li id="menu_current1"><a href="/talks.html">Talks</a></li>
 						{% else %}
 							<li id="menu_button1"><a href="/talks.html">Talks</a></li>
 						{% endif %}
 
-						{% if current == "3" %}
+						{% if page.current == 3 %}
 							<li id="menu_current1"><a href="/projects.html">Projects</a></li>
 						{% else %}
 							<li id="menu_button1"><a href="/projects.html">Projects</a></li>
 						{% endif %}
 
-						{% if current == "4" %}
-							<li id="menu_current1"><a href="/blog/">Blog</a></li>
+						{% if page.current == 4 %}
+							<li id="menu_current1"><a href="/blog.html">Blog</a></li>
 						{% else %}
-							<li id="menu_button1"><a href="/blog/">Blog</a></li>
+							<li id="menu_button1"><a href="/blog.html">Blog</a></li>
 						{% endif %}
 
-						{% if current == "5" %}
-							<li id="menu_current2"><a href="/tutorial.html">CL SGEMM</br>tutorial</a></li>
+						{% if page.current == 5 %}
+							<li id="menu_current2"><a href="/tutorial/pages/page1.html">CL SGEMM</br>tutorial</a></li>
 						{% else %}
-							<li id="menu_button2"><a href="/tutorial.html">CL SGEMM</br>tutorial</a></li>
+							<li id="menu_button2"><a href="/tutorial/pages/page1.html">CL SGEMM</br>tutorial</a></li>
 						{% endif %}
 					</ul>
 				</span>
@@ -56,25 +102,56 @@
 			</div>
 
 			<div id="picture">
-				<img class="leftimage" src="images/picture.jpg" alt="profile_picture" />
+				{% if page.current == 5 %}
+					<img class="leftimage" src="/tutorial/images/tutorial.png" alt="tutorial_picture" />
+				{% else %}
+					<img class="leftimage" src="images/picture.jpg" alt="profile_picture" />
+				{% endif %}
 			</div>
+
 			<div id="box">
-				<div id="box_title">Current job:</div>
-				Performance engineer</br>
-				</br>
-				<div id="box_title">Current location:</div>
-				Amsterdam, NL</br>
-				</br>
+				{% if page.current == 5 %}
+					<div id="box_title">Navigation:</div>
+					{% if page.tutorial_page != 1 %}<a href='/tutorial/pages/page1.html'>Introduction</a>{% else %}Introduction{% endif %}<br/>
+					{% if page.tutorial_page != 2 %}<a href='/tutorial/pages/page2.html'>Matrix-multiplication</a>{% else %}Matrix-multiplication{% endif %}<br/>
+					{% if page.tutorial_page != 3 %}<a href='/tutorial/pages/page3.html'>Kernel 1</a>{% else %}Kernel 1{% endif %}<br/>
+					{% if page.tutorial_page != 4 %}<a href='/tutorial/pages/page4.html'>Kernel 2</a>{% else %}Kernel 2{% endif %}<br/>
+					{% if page.tutorial_page != 5 %}<a href='/tutorial/pages/page5.html'>Kernel 3</a>{% else %}Kernel 3{% endif %}<br/>
+					{% if page.tutorial_page != 6 %}<a href='/tutorial/pages/page6.html'>Kernel 4</a>{% else %}Kernel 4{% endif %}<br/>
+					{% if page.tutorial_page != 7 %}<a href='/tutorial/pages/page7.html'>Kernel 5</a>{% else %}Kernel 5{% endif %}<br/>
+					{% if page.tutorial_page != 8 %}<a href='/tutorial/pages/page8.html'>Kernel 6</a>{% else %}Kernel 6{% endif %}<br/>
+					{% if page.tutorial_page != 9 %}<a href='/tutorial/pages/page9.html'>Kernel 7</a>{% else %}Kernel 7{% endif %}<br/>
+					{% if page.tutorial_page != 10 %}<a href='/tutorial/pages/page10.html'>Kernel 8</a>{% else %}Kernel 8{% endif %}<br/>
+					{% if page.tutorial_page != 11 %}<a href='/tutorial/pages/page11.html'>Kernel 9</a>{% else %}Kernel 9{% endif %}<br/>
+					{% if page.tutorial_page != 12 %}<a href='/tutorial/pages/page12.html'>Kernel 10</a>{% else %}Kernel 10{% endif %}<br/>
+					{% if page.tutorial_page != 13 %}<a href='/tutorial/pages/page13.html'>What's next?</a>{% else %}What's next?{% endif %}<br/>
+					</br>
+					<div id="box_title">Extra pages:</div>
+					{% if page.tutorial_page != 14 %}<a href='/tutorial/pages/page14.html'>Inside clBlas</a>{% else %}Inside clBlas{% endif %}<br/>
+					{% if page.tutorial_page != 15 %}<a href='/tutorial/pages/page15.html'>clBlas on AMD GPUs</a>{% else %}clBlas on AMD GPUs{% endif %}<br/>
+					</br>
+				{% else %}
+					<div id="box_title">Current job:</div>
+					Performance engineer</br>
+					</br>
+					<div id="box_title">Current location:</div>
+					Amsterdam, NL</br>
+					</br>
+					<div id="box_title">Year of birth:</div>
+					1986</br>
+					</br>
+					<div id="box_title">Nationality:</div>
+					Dutch</br>
+					</br>
+				{% endif %}
 				<div id="box_title">Contact:</div>
 				www.cedricnugteren.nl</br>
-				</a>&#x200E;
-				</br>
-				<div id="box_title">Year of birth:</div>
-				1986</br>
-				</br>
-				<div id="box_title">Nationality:</div>
-				Dutch</br>
-				</br>
+				<script type="text/javascript"> 
+					gen_mail_to_link("web", "cedricnugteren.nl", "");
+				</script>
+				<noscript>
+					Email address protected by JavaScript - activate JavaScript to see it
+				</noscript>
 			</div>
 
 			<div id="footer">
