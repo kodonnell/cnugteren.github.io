@@ -1,2 +1,4 @@
 me: Cedric Nugteren
 markdown: kramdown
+gems:
+  - jekyll-redirect-from
