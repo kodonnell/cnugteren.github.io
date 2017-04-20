@@ -1,0 +1,51 @@
+---
+layout: default
+title: Cedric Nugteren | CLBlast
+current: 4
+redirect_from:
+ - /clblast/
+---
+
+<h1>CLBlast: The tuned OpenCL BLAS library</h1>
+
+<div class="text">
+	CLBlast is a modern, lightweight, performant and tunable OpenCL BLAS library written in C++11. It is designed to leverage the full performance potential of a wide variety of OpenCL devices from different vendors, including desktop and laptop GPUs, embedded GPUs, and other accelerators. CLBlast implements BLAS routines: basic linear algebra subprograms operating on vectors and matrices.
+	<br/><br/>
+	This preview-version is not yet tuned for all OpenCL devices: out-of-the-box performance on some devices might be poor. See <a href=https://github.com/CNugteren/CLBlast#using-the-tuners-optional>the README on GitHub</a> for a list of already tuned devices and instructions on how to tune yourself and contribute to future releases of the CLBlast library.
+	<br/><br/>
+	View on <a href=https://github.com/CNugteren/CLBlast>CLBlast on GitHub</a>.
+</div>
+
+<h1>Why CLBlast and not clBLAS or cuBLAS?</h1>
+
+<div class="text">
+	Use CLBlast instead of clBLAS:
+	<ol>
+		<li>When you care about achieving maximum performance.</li>
+		<li>When you want to be able to inspect the BLAS kernels or easily customize them to your needs.</li>
+		<li>When you run on exotic OpenCL devices for which you need to tune yourself.</li>
+		<li>When you are still running on OpenCL 1.1 hardware.</li>
+		<li>When you value an organized and modern C++ codebase.</li>
+		<li>When you target Intel CPUs and GPUs or embedded devices</li>
+		<li>When you can benefit from the increased performance of half-precision fp16 data-types.</li>
+	</ol>
+
+	Use CLBlast instead of cuBLAS:
+	<ol>
+		<li>When you want your code to run on devices other than NVIDIA CUDA-enabled GPUs.</li>
+		<li>When you want to tune for a specific configuration (e.g. rectangular matrix-sizes).</li>
+		<li>When you sleep better if you know that the library you use is open-source.</li>
+		<li>When you are using OpenCL rather than CUDA.</li>
+	</ol>
+
+	When not to use CLBlast:
+	<ol>
+		<li>When you run on NVIDIA's CUDA-enabled GPUs only and can benefit from cuBLAS's assembly-level tuned kernels.</li>
+	</ol>
+</div>
+
+<h1>News</h1>
+
+<h2>April 20, 2017: Launch of this page</h2>
+
+First version of this page is created. In the future it will host performance benchmark results for the CLBlast library on various devices.

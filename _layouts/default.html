@@ -83,6 +83,12 @@
 							<li id="menu_button1"><a href="/projects.html">Projects</a></li>
 						{% endif %}
 
+						{% if page.current == 4 %}
+							<li id="menu_current1"><a href="/clblast/clblast.html">CLBlast</a></li>
+						{% else %}
+							<li id="menu_button1"><a href="/clblast/clblast.html">CLBlast</a></li>
+						{% endif %}
+
 						{% if page.current == 5 %}
 							<li id="menu_current2"><a href="/tutorial/pages/page1.html">CL SGEMM</br>tutorial</a></li>
 						{% else %}
@@ -98,6 +104,8 @@
 			<div id="picture">
 				{% if page.current == 5 %}
 					<img class="leftimage" src="/tutorial/images/tutorial.png" alt="tutorial_picture" />
+				{% elsif page.current == 4 %}
+					<img class="leftimage" src="/clblast/images/clblast.png" alt="clblast_picture" />
 				{% else %}
 					<img class="leftimage" src="images/picture.jpg" alt="profile_picture" />
 				{% endif %}
@@ -124,6 +132,10 @@
 					{% if page.tutorial_page != 14 %}<a href='/tutorial/pages/page14.html'>Inside clBlas</a>{% else %}Inside clBlas{% endif %}<br/>
 					{% if page.tutorial_page != 15 %}<a href='/tutorial/pages/page15.html'>clBlas on AMD GPUs</a>{% else %}clBlas on AMD GPUs{% endif %}<br/>
 					</br>
+				{% elsif page.current == 4 %}
+					<div id="box_title">CLBlast links:</div>
+					<a href=https://github.com/CNugteren/CLBlast>GitHub</a><br/>
+					<br/>
 				{% else %}
 					<div id="box_title">Current job:</div>
 					Performance engineer</br>
