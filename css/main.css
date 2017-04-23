@@ -2,7 +2,7 @@
 /******************** 
  * Main
  ********************/
-body {
+body#normal {
 	width: 940px;
 	margin: auto;
 	font-family: Helvetica, Verdana, Arial, sans-serif;
@@ -11,8 +11,26 @@ body {
 	color: black;
 	background: #eeeeee;
 }
-html, #wrapper {
+body#clblast {
+	width: 1340px;
+	margin: auto;
+	font-family: Helvetica, Verdana, Arial, sans-serif;
+	font-size: 10pt;
+	text-align: left;
+	color: black;
+	background: #eeeeee;
+}
+html#normal, #wrapper {
 	width: 940px;
+	margin: auto;
+	font-family: Helvetica, Verdana, Arial, sans-serif;
+	font-size: 10pt;
+	text-align: left;
+	color: black;
+	background: #eeeeee;
+}
+html#clblast {
+	width: 1340px;
 	margin: auto;
 	font-family: Helvetica, Verdana, Arial, sans-serif;
 	font-size: 10pt;
@@ -300,6 +318,16 @@ pre {
  ********************/
 #post {
 	width: 200px;
+}
+
+/******************** 
+ * CLBlast
+ ********************/
+img#clblastimage {
+	width: 1040px;
+	padding-bottom: 4em;
+	padding-top: 4em;
+	border-bottom: 1px solid #4765B1;
 }
 
 /******************** 

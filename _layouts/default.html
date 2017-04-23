@@ -1,5 +1,9 @@
 <!DOCTYPE html>
-	<html>
+	{% if page.current == 4 %}
+	<html id="clblast">
+	{% else %}
+	<html id="normal">
+	{% endif %}
 		<head>
 			<title>{{ page.title }}</title>
 			<link rel="stylesheet" type="text/css" href="/css/main.css">
@@ -17,7 +21,12 @@
 				<body onload="prettyPrint()">
 			{% endif %}
 		</head>
-		<body>
+
+		{% if page.current == 4 %}
+		<body id="clblast">
+		{% else %}
+		<body id="normal">
+		{% endif %}
 
 			<div id="page">
 
@@ -35,6 +44,20 @@
 							<div id="rightbutton"><a href="/tutorial/pages/page{{ page.tutorial_page | plus:1 }}.html">next -&gt;</a></div>
 						{% endif %}
 					</div>
+				{% endif %}
+
+				{% if page.clblast_page %}
+
+					<h1>CLBlast: Benchmarks</h1>
+
+					<div class="text">
+						This page contains a collection of performance results for a particular device. See the navigation menu for results of other devices. All results are obtained using the CLBlast clients and the included benchmark scripts.
+						<br/><br/>
+						View <a href=https://github.com/CNugteren/CLBlast>CLBlast on GitHub</a>.
+						<br/><br/>
+						Back to the <a href="/clblast/clblast.html">main CLBlast page</a>.
+					</div>
+
 				{% endif %}
 
 				{{ content }}
@@ -114,27 +137,36 @@
 			<div id="box">
 				{% if page.current == 5 %}
 					<div id="box_title">Navigation:</div>
-					{% if page.tutorial_page != 1 %}<a href='/tutorial/pages/page1.html'>Introduction</a>{% else %}Introduction{% endif %}<br/>
-					{% if page.tutorial_page != 2 %}<a href='/tutorial/pages/page2.html'>Matrix-multiplication</a>{% else %}Matrix-multiplication{% endif %}<br/>
-					{% if page.tutorial_page != 3 %}<a href='/tutorial/pages/page3.html'>Kernel 1</a>{% else %}Kernel 1{% endif %}<br/>
-					{% if page.tutorial_page != 4 %}<a href='/tutorial/pages/page4.html'>Kernel 2</a>{% else %}Kernel 2{% endif %}<br/>
-					{% if page.tutorial_page != 5 %}<a href='/tutorial/pages/page5.html'>Kernel 3</a>{% else %}Kernel 3{% endif %}<br/>
-					{% if page.tutorial_page != 6 %}<a href='/tutorial/pages/page6.html'>Kernel 4</a>{% else %}Kernel 4{% endif %}<br/>
-					{% if page.tutorial_page != 7 %}<a href='/tutorial/pages/page7.html'>Kernel 5</a>{% else %}Kernel 5{% endif %}<br/>
-					{% if page.tutorial_page != 8 %}<a href='/tutorial/pages/page8.html'>Kernel 6</a>{% else %}Kernel 6{% endif %}<br/>
-					{% if page.tutorial_page != 9 %}<a href='/tutorial/pages/page9.html'>Kernel 7</a>{% else %}Kernel 7{% endif %}<br/>
-					{% if page.tutorial_page != 10 %}<a href='/tutorial/pages/page10.html'>Kernel 8</a>{% else %}Kernel 8{% endif %}<br/>
-					{% if page.tutorial_page != 11 %}<a href='/tutorial/pages/page11.html'>Kernel 9</a>{% else %}Kernel 9{% endif %}<br/>
-					{% if page.tutorial_page != 12 %}<a href='/tutorial/pages/page12.html'>Kernel 10</a>{% else %}Kernel 10{% endif %}<br/>
-					{% if page.tutorial_page != 13 %}<a href='/tutorial/pages/page13.html'>What's next?</a>{% else %}What's next?{% endif %}<br/>
+					{% if page.tutorial_page != 1 %}<a href='/tutorial/pages/page1.html'>- Introduction</a>{% else %}- Introduction{% endif %}<br/>
+					{% if page.tutorial_page != 2 %}<a href='/tutorial/pages/page2.html'>- Matrix-multiplication</a>{% else %}- Matrix-multiplication{% endif %}<br/>
+					{% if page.tutorial_page != 3 %}<a href='/tutorial/pages/page3.html'>- Kernel 1</a>{% else %}- Kernel 1{% endif %}<br/>
+					{% if page.tutorial_page != 4 %}<a href='/tutorial/pages/page4.html'>- Kernel 2</a>{% else %}- Kernel 2{% endif %}<br/>
+					{% if page.tutorial_page != 5 %}<a href='/tutorial/pages/page5.html'>- Kernel 3</a>{% else %}- Kernel 3{% endif %}<br/>
+					{% if page.tutorial_page != 6 %}<a href='/tutorial/pages/page6.html'>- Kernel 4</a>{% else %}- Kernel 4{% endif %}<br/>
+					{% if page.tutorial_page != 7 %}<a href='/tutorial/pages/page7.html'>- Kernel 5</a>{% else %}- Kernel 5{% endif %}<br/>
+					{% if page.tutorial_page != 8 %}<a href='/tutorial/pages/page8.html'>- Kernel 6</a>{% else %}- Kernel 6{% endif %}<br/>
+					{% if page.tutorial_page != 9 %}<a href='/tutorial/pages/page9.html'>- Kernel 7</a>{% else %}- Kernel 7{% endif %}<br/>
+					{% if page.tutorial_page != 10 %}<a href='/tutorial/pages/page10.html'>- Kernel 8</a>{% else %}- Kernel 8{% endif %}<br/>
+					{% if page.tutorial_page != 11 %}<a href='/tutorial/pages/page11.html'>- Kernel 9</a>{% else %}- Kernel 9{% endif %}<br/>
+					{% if page.tutorial_page != 12 %}<a href='/tutorial/pages/page12.html'>- Kernel 10</a>{% else %}- Kernel 10{% endif %}<br/>
+					{% if page.tutorial_page != 13 %}<a href='/tutorial/pages/page13.html'>- What's next?</a>{% else %}- What's next?{% endif %}<br/>
 					</br>
 					<div id="box_title">Extra pages:</div>
-					{% if page.tutorial_page != 14 %}<a href='/tutorial/pages/page14.html'>Inside clBlas</a>{% else %}Inside clBlas{% endif %}<br/>
-					{% if page.tutorial_page != 15 %}<a href='/tutorial/pages/page15.html'>clBlas on AMD GPUs</a>{% else %}clBlas on AMD GPUs{% endif %}<br/>
+					{% if page.tutorial_page != 14 %}<a href='/tutorial/pages/page14.html'>- Inside clBlas</a>{% else %}- Inside clBlas{% endif %}<br/>
+					{% if page.tutorial_page != 15 %}<a href='/tutorial/pages/page15.html'>- clBlas on AMD GPUs</a>{% else %}- clBlas on AMD GPUs{% endif %}<br/>
 					</br>
 				{% elsif page.current == 4 %}
 					<div id="box_title">CLBlast links:</div>
 					<a href=https://github.com/CNugteren/CLBlast>GitHub</a><br/>
+					<br/>
+					<div id="box_title">Navigation:</div>
+					{% if page.clblast_page %}<a href='/clblast/clblast.html'>- Main page</a>{% else %}- Main page{% endif %}<br/>
+					{% if page.clblast_page != 1 %}<a href='/clblast/results/gtx750ti.html'>- GeForce GTX750Ti</a>{% else %}- GeForce GTX750Ti{% endif %}<br/>
+					{% if page.clblast_page != 2 %}<a href='/clblast/results/titanxpascal.html'>- Titan X (Pascal)</a>{% else %}- Titan X (Pascal){% endif %}<br/>
+					{% if page.clblast_page != 3 %}<a href='/clblast/results/m370x.html'>- Radeon M370X</a>{% else %}- Radeon M370X{% endif %}<br/>
+					{% if page.clblast_page != 4 %}<a href='/clblast/results/irispro.html'>- Iris Pro 5100</a>{% else %}- Iris Pro 5100{% endif %}<br/>
+					{% if page.clblast_page != 5 %}<a href='/clblast/results/skylakeultgt2.html'>- Skylake ULT GT2</a>{% else %}- Skylake ULT GT2{% endif %}<br/>
+					{% if page.clblast_page != 6 %}<a href='/clblast/results/i56200U.html'>- Core i5-6200U</a>{% else %}- Core i5-6200U{% endif %}<br/>
 					<br/>
 				{% else %}
 					<div id="box_title">Current job:</div>
